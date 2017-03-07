@@ -9,8 +9,11 @@ module.exports = function(fly) {
       file.dir = path.join(file.dir, path.dirname(ret))
       file.base = path.basename(ret)
     } else {
-      const { prefix = '', suffix = '', dirname } = opts
-      let { basename, extname } = opts
+      const prefix = opts.prefix || ''
+      const suffix = opts.suffix || ''
+      const dirname = opts.dirname
+      let basename = opts.basename
+      let extname = opts.extname
 
       if (dirname) {
         file.dir = path.join(file.dir, dirname)
