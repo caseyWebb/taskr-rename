@@ -26,31 +26,32 @@ npm install --save-dev fly-rename
 ### Object
 ```js
 export default function* (fly) {
-  yield fly.source('./src/**/*.js')
+  yield fly.source('./src/foo.js')
     .rename({
       dirname: 'dir/name',
-      basename: 'basename',
+      basename: 'bar',
       prefix: 'prefix-',
       suffix: '-suffix',
-      extname: '.ext'
+      extname: '.html'
     })
     .target('./dist')
 
-    // .dist/dir/name/prefix-basename-suffix.ext
+    // .dist/dir/name/prefix-bar-suffix.html
 }
 ```
 
 ### Function
 ```js
 export default function* (fly) {
-  yield fly.source('./src/**/*.js')
-    .rename((path) => {
-      // path === ./src/foo/bar.js
-      return 'dir/name/prefix-basename-suffix.ext'
+  yield fly.source('./src/foo.js')
+    .rename((file) => {
+      file.dirname = 'dir/name'
+      file.basename = 'bar'
+      file.extname = '.html'
     })
     .target('./dist')
 
-    // .dist/dir/name/prefix-basename-suffix.ext
+    // .dist/dir/name/bar.html
 }
 ```
 

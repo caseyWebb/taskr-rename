@@ -5,9 +5,16 @@ const path = require('path')
 module.exports = function(fly) {
   fly.plugin('rename', { every: true }, function * (file, opts) { // eslint-disable-line require-yield
     if (typeof opts === 'function') {
-      const ret = opts(path.join(file.dir, file.base))
-      file.dir = path.join(file.dir, path.dirname(ret))
-      file.base = path.basename(ret)
+      const dirname = file.dir
+      const extname = path.extname(file.base)
+      const basename = path.basename(file.base, extname)
+
+      // values should be modified by reference
+      const f = { dirname, extname, basename }
+      opts(f)
+
+      file.dir = path.join(dirname, f.dirname)
+      file.base = f.basename + f.extname
     } else {
       const prefix = opts.prefix || ''
       const suffix = opts.suffix || ''

@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "prepublish": "npm run test",
-    "test": "export NODE_ENV=test; nyc --reporter=lcov --reporter=html ava --verbose && rm -rf test/.tmp"
+    "test": "export NODE_ENV=test; nyc --reporter=lcov --reporter=html ava --verbose && rm -rf test/.tmp",
+    "develop": "ava --watch"
   },
   "author": {
     "name": "Casey Webb",
