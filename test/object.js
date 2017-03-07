@@ -59,3 +59,28 @@ test('fly-rename w/ object preserves dirname, basename, extname when not supplie
 
   await fly.start('rename')
 })
+
+test('fly-rename w/ object works without prefix, suffix', async (t) => {
+  const tmp = path.resolve(__dirname, '.tmp/object/3')
+
+  t.plan(1)
+
+  const fly = new Fly({
+    plugins: [
+      require('../')
+    ],
+    tasks: {
+      * rename(f) {
+        yield f.source(foo)
+          .rename({
+            basename: 'bar'
+          })
+          .target(tmp)
+
+        t.true(fs.existsSync(path.resolve(__dirname, '.tmp/object/3/bar.js')))
+      }
+    }
+  })
+
+  await fly.start('rename')
+})
