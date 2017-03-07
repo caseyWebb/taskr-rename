@@ -70,5 +70,5 @@ export default function* (fly) {
 [dl-badge]:     http://img.shields.io/npm/dm/fly-rename.svg?style=flat-square
 [travis-link]:  https://travis-ci.org/caseyWebb/fly-rename
 [travis-badge]: http://img.shields.io/travis/caseyWebb/fly-rename.svg?style=flat-square
-[coveralls-link]:  https://coveralls.io/caseyWebb/fly-rename
+[coveralls-link]:  https://coveralls.io/github/caseyWebb/fly-rename
 [coveralls-badge]: http://img.shields.io/coveralls/caseyWebb/fly-rename.svg?style=flat-square
