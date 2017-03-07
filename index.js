@@ -13,7 +13,7 @@ module.exports = function(fly) {
       const f = { dirname, extname, basename }
       opts(f)
 
-      file.dir = path.join(dirname, f.dirname)
+      file.dir = path.resolve(dirname, f.dirname)
       file.base = f.basename + f.extname
     } else {
       const prefix = opts.prefix || ''
