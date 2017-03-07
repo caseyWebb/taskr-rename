@@ -14,6 +14,7 @@
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
+[![][coveralls-badge]][coveralls-link]
 [![][mit-badge]][mit]
 
 ## Install
@@ -27,31 +28,32 @@ npm install --save-dev fly-rename
 ### Object
 ```js
 export default function* (fly) {
-  yield fly.source('./src/**/*.js')
+  yield fly.source('./src/foo.js')
     .rename({
       dirname: 'dir/name',
-      basename: 'basename',
+      basename: 'bar',
       prefix: 'prefix-',
       suffix: '-suffix',
-      extname: '.ext'
+      extname: '.html'
     })
     .target('./dist')
 
-    // .dist/dir/name/prefix-basename-suffix.ext
+    // .dist/dir/name/prefix-bar-suffix.html
 }
 ```
 
 ### Function
 ```js
 export default function* (fly) {
-  yield fly.source('./src/**/*.js')
-    .rename((path) => {
-      // path === ./src/foo/bar.js
-      return 'dir/name/prefix-basename-suffix.ext'
+  yield fly.source('./src/foo.js')
+    .rename((file) => {
+      file.dirname = 'dir/name'
+      file.basename = 'bar'
+      file.extname = '.html'
     })
     .target('./dist')
 
-    // .dist/dir/name/prefix-basename-suffix.ext
+    // .dist/dir/name/bar.html
 }
 ```
 
@@ -71,3 +73,5 @@ export default function* (fly) {
 [dl-badge]:     http://img.shields.io/npm/dm/fly-rename.svg?style=flat-square
 [travis-link]:  https://travis-ci.org/caseyWebb/fly-rename
 [travis-badge]: http://img.shields.io/travis/caseyWebb/fly-rename.svg?style=flat-square
+[coveralls-link]:  https://coveralls.io/github/caseyWebb/fly-rename
+[coveralls-badge]: http://img.shields.io/coveralls/caseyWebb/fly-rename.svg?style=flat-square
