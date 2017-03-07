@@ -12,6 +12,7 @@
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
+[![][coveralls-badge]][coveralls-link]
 [![][mit-badge]][mit]
 
 ## Install
@@ -69,3 +70,5 @@ export default function* (fly) {
 [dl-badge]:     http://img.shields.io/npm/dm/fly-rename.svg?style=flat-square
 [travis-link]:  https://travis-ci.org/caseyWebb/fly-rename
 [travis-badge]: http://img.shields.io/travis/caseyWebb/fly-rename.svg?style=flat-square
+[coveralls-link]:  https://coveralls.io/caseyWebb/fly-rename
+[coveralls-badge]: http://img.shields.io/coveralls/caseyWebb/fly-rename.svg?style=flat-square

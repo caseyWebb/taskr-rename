@@ -19,10 +19,10 @@ module.exports = function(fly) {
         file.dir = path.join(file.dir, dirname)
       }
       if (!extname) {
-        extname = path.join(file.base)
+        extname = path.extname(file.base)
       }
       if (!basename) {
-        basename = path.join(file.base, extname)
+        basename = path.basename(file.base, extname)
       }
 
       file.base = prefix + basename + suffix + extname
