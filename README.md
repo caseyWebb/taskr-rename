@@ -6,6 +6,8 @@
 
 # fly-rename
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/fly-rename.svg)](https://greenkeeper.io/)
+
 > [Rename](https://github.com/caseyWebb/fly-rename) plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
