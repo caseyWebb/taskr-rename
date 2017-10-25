@@ -2,8 +2,8 @@
 
 const path = require('path')
 
-module.exports = function(fly) {
-  fly.plugin('rename', { every: true }, function * (file, opts) { // eslint-disable-line require-yield
+module.exports = function(task) {
+  task.plugin('rename', { every: true }, function * (file, opts) { // eslint-disable-line require-yield
     if (typeof opts === 'function') {
       const dirname = file.dir
       const extname = path.extname(file.base)

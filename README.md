@@ -1,34 +1,30 @@
-<div align="center">
-  <a href="http://github.com/flyjs/fly">
-    <img width=200px  src="https://cloud.githubusercontent.com/assets/8317250/8733685/0be81080-2c40-11e5-98d2-c634f076ccd7.png">
-  </a>
-</div>
+# taskr-rename
+> Rename plugin for [Taskr][]
 
-# fly-rename
+*NOTE:* This repository has been renamed from fly-rename to taskr-rename. If you haven't yet migrated to [Taskr][], now is the time to do so.
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/fly-rename.svg)](https://greenkeeper.io/)
-
-> [Rename](https://github.com/caseyWebb/fly-rename) plugin for _[Fly][fly]_.
-
-[![][fly-badge]][fly]
-[![npm package][npm-ver-link]][releases]
-[![][dl-badge]][npm-pkg-link]
-[![][travis-badge]][travis-link]
-[![][coveralls-badge]][coveralls-link]
-[![][mit-badge]][mit]
+[![NPM][npm-shield]][npm]
+[![License][license-shield]][license]
+[![Build Status][travis-ci-shield]][travis-ci]
+[![Coverage Status][codecov-shield]][codecov]
+[![Dependency Status][david-dm-shield]][david-dm]
 
 ## Install
 
-```a
-npm install --save-dev fly-rename
+```yarn
+$ yarn add -D taskr taskr-rename
+```
+*or*
+```bash
+$ npm install --save-dev taskr taskr-rename
 ```
 
 ## Usage
 
 ### Object
 ```js
-export default function* (fly) {
-  yield fly.source('./src/foo.js')
+export default function* (task) {
+  yield task.source('./src/foo.js')
     .rename({
       dirname: 'dir/name',
       basename: 'bar',
@@ -44,8 +40,8 @@ export default function* (fly) {
 
 ### Function
 ```js
-export default function* (fly) {
-  yield fly.source('./src/foo.js')
+export default function* (task) {
+  yield task.source('./src/foo.js')
     .rename((file) => {
       file.dirname = 'dir/name'
       file.basename = 'bar'
@@ -57,21 +53,19 @@ export default function* (fly) {
 }
 ```
 
-## License
+[Taskr]: https://github.com/lukeed/taskr
 
-[MIT][mit] © [Casey Webb][author]
+[npm]: https://npmjs.com/package/taskr-rollup
+[npm-shield]: https://img.shields.io/npm/v/taskr-rollup.svg
 
+[license]: ./LICENSE
+[license-shield]: https://img.shields.io/npm/l/taskr-rollup.svg
 
-[mit]:          http://opensource.org/licenses/MIT
-[author]:       http://github.com/caseyWebb
-[releases]:     https://github.com/caseyWebb/fly-rename/releases
-[fly]:          https://www.github.com/flyjs/fly
-[fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
-[mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
-[npm-pkg-link]: https://www.npmjs.org/package/fly-rename
-[npm-ver-link]: https://img.shields.io/npm/v/fly-rename.svg?style=flat-square
-[dl-badge]:     http://img.shields.io/npm/dm/fly-rename.svg?style=flat-square
-[travis-link]:  https://travis-ci.org/caseyWebb/fly-rename
-[travis-badge]: http://img.shields.io/travis/caseyWebb/fly-rename.svg?style=flat-square
-[coveralls-link]:  https://coveralls.io/github/caseyWebb/fly-rename
-[coveralls-badge]: http://img.shields.io/coveralls/caseyWebb/fly-rename.svg?style=flat-square
+[travis-ci]: https://travis-ci.org/caseyWebb/taskr-rollup/
+[travis-ci-shield]: https://img.shields.io/travis/caseyWebb/taskr-rollup/master.svg
+
+[codecov]: https://codecov.io/gh/caseyWebb/taskr-rollup
+[codecov-shield]: https://img.shields.io/codecov/c/github/caseyWebb/taskr-rollup.svg
+
+[david-dm]: https://david-dm.org/caseyWebb/taskr-rollup#type=peer
+[david-dm-shield]: https://img.shields.io/david/peer/caseyWebb/taskr-rollup.svg
