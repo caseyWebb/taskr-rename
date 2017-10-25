@@ -16,22 +16,16 @@ module.exports = function(task) {
       file.dir = path.resolve(dirname, f.dirname)
       file.base = f.basename + f.extname
     } else {
+      const oldextname = path.extname(file.base)
+      const oldbasename = path.basename(file.base, oldextname)
+
+      const dir = opts.dirname || ''
       const prefix = opts.prefix || ''
       const suffix = opts.suffix || ''
-      const dirname = opts.dirname
-      let basename = opts.basename
-      let extname = opts.extname
+      const extname = opts.extname || oldextname
+      const basename = opts.basename || oldbasename
 
-      if (dirname) {
-        file.dir = path.join(file.dir, dirname)
-      }
-      if (!extname) {
-        extname = path.extname(file.base)
-      }
-      if (!basename) {
-        basename = path.basename(file.base, extname)
-      }
-
+      file.dir = path.join(file.dir, dir)
       file.base = prefix + basename + suffix + extname
     }
   })
