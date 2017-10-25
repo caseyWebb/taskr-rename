@@ -1,7 +1,7 @@
 # taskr-rename
 > Rename plugin for [Taskr][]
 
-*NOTE:* This repository has been renamed from fly-rename to taskr-rename. If you haven't yet migrated to [Taskr][], now is the time to do so.
+**NOTE:** This repository has been renamed from fly-rename to taskr-rename. If you haven't yet migrated to [Taskr][], now is the time to do so.
 
 [![NPM][npm-shield]][npm]
 [![License][license-shield]][license]
