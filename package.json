@@ -2,7 +2,7 @@
   "name": "taskr-rename",
   "version": "0.0.1",
   "description": "Rename plugin for Taskr",
-  "license": "MIT",
+  "license": "WTFPL",
   "repository": "https://github.com/caseyWebb/taskr-rename",
   "files": [
     "index.js"
