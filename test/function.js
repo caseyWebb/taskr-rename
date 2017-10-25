@@ -1,15 +1,15 @@
 import fs from 'fs'
 import path from 'path'
 import test from 'ava'
-import Fly from 'fly'
+import Taskr from 'taskr'
 
 const foo = path.resolve(__dirname, 'fixtures/foo.js')
 const tmp = path.resolve(__dirname, '.tmp/function')
 
-test('fly-rename w/ function', async (t) => {
+test('taskr-rename w/ function', async (t) => {
   t.plan(4)
 
-  const fly = new Fly({
+  const taskr = new Taskr({
     plugins: [
       require('../')
     ],
@@ -32,5 +32,5 @@ test('fly-rename w/ function', async (t) => {
     }
   })
 
-  await fly.start('rename')
+  await taskr.start('rename')
 })

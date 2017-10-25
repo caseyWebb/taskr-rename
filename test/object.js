@@ -1,16 +1,16 @@
 import fs from 'fs'
 import path from 'path'
 import test from 'ava'
-import Fly from 'fly'
+import Taskr from 'taskr'
 
 const foo = path.resolve(__dirname, 'fixtures/foo.js')
 
-test('fly-rename w/ object', async (t) => {
+test('taskr-rename w/ object', async (t) => {
   const tmp = path.resolve(__dirname, '.tmp/object/1')
 
   t.plan(1)
 
-  const fly = new Fly({
+  const taskr = new Taskr({
     plugins: [
       require('../')
     ],
@@ -31,15 +31,15 @@ test('fly-rename w/ object', async (t) => {
     }
   })
 
-  await fly.start('rename')
+  await taskr.start('rename')
 })
 
-test('fly-rename w/ object preserves dirname, basename, extname when not supplied', async (t) => {
+test('taskr-rename w/ object preserves dirname, basename, extname when not supplied', async (t) => {
   const tmp = path.resolve(__dirname, '.tmp/object/2')
 
   t.plan(1)
 
-  const fly = new Fly({
+  const taskr = new Taskr({
     plugins: [
       require('../')
     ],
@@ -57,15 +57,15 @@ test('fly-rename w/ object preserves dirname, basename, extname when not supplie
     }
   })
 
-  await fly.start('rename')
+  await taskr.start('rename')
 })
 
-test('fly-rename w/ object works without prefix, suffix', async (t) => {
+test('taskr-rename w/ object works without prefix, suffix', async (t) => {
   const tmp = path.resolve(__dirname, '.tmp/object/3')
 
   t.plan(1)
 
-  const fly = new Fly({
+  const taskr = new Taskr({
     plugins: [
       require('../')
     ],
@@ -82,5 +82,5 @@ test('fly-rename w/ object works without prefix, suffix', async (t) => {
     }
   })
 
-  await fly.start('rename')
+  await taskr.start('rename')
 })
