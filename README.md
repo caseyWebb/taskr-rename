@@ -1,4 +1,6 @@
 # taskr-rename
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/caseyWebb/taskr-rename.svg)](https://greenkeeper.io/)
 > Rename plugin for [Taskr][]
 
 **NOTE:** This repository has been renamed from fly-rename to taskr-rename. If you haven't yet migrated to [Taskr][], now is the time to do so.
