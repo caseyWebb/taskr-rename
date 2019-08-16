@@ -1,9 +1,11 @@
+/* eslint-disable require-yield */
+
 'use strict'
 
 const path = require('path')
 
 module.exports = function(task) {
-  task.plugin('rename', { every: true }, function * (file, opts) { // eslint-disable-line require-yield
+  task.plugin('rename', { every: true }, function*(file, opts) {
     if (typeof opts === 'function') {
       const dirname = file.dir
       const extname = path.extname(file.base)

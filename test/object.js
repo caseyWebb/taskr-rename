@@ -1,22 +1,22 @@
-import fs from 'fs'
-import path from 'path'
-import test from 'ava'
-import Taskr from 'taskr'
+'use strict'
+
+const fs = require('fs')
+const path = require('path')
+const Taskr = require('taskr')
 
 const foo = path.resolve(__dirname, 'fixtures/foo.js')
 
-test('taskr-rename w/ object', async (t) => {
+test('taskr-rename w/ object', async () => {
   const tmp = path.resolve(__dirname, '.tmp/object/1')
 
-  t.plan(1)
+  expect.assertions(1)
 
   const taskr = new Taskr({
-    plugins: [
-      require('../')
-    ],
+    plugins: [require('../')],
     tasks: {
-      * rename(f) {
-        yield f.source(foo)
+      *rename(f) {
+        yield f
+          .source(foo)
           .rename({
             dirname: 'dir/name',
             basename: 'basename',
@@ -26,7 +26,14 @@ test('taskr-rename w/ object', async (t) => {
           })
           .target(tmp)
 
-        t.true(fs.existsSync(path.resolve(__dirname, '.tmp/object/1/dir/name/prefix-basename-suffix.ext')))
+        expect(
+          fs.existsSync(
+            path.resolve(
+              __dirname,
+              '.tmp/object/1/dir/name/prefix-basename-suffix.ext'
+            )
+          )
+        ).toBeTruthy()
       }
     }
   })
@@ -34,25 +41,28 @@ test('taskr-rename w/ object', async (t) => {
   await taskr.start('rename')
 })
 
-test('taskr-rename w/ object preserves dirname, basename, extname when not supplied', async (t) => {
+test('taskr-rename w/ object preserves dirname, basename, extname when not supplied', async () => {
   const tmp = path.resolve(__dirname, '.tmp/object/2')
 
-  t.plan(1)
+  expect.assertions(1)
 
   const taskr = new Taskr({
-    plugins: [
-      require('../')
-    ],
+    plugins: [require('../')],
     tasks: {
-      * rename(f) {
-        yield f.source(foo)
+      *rename(f) {
+        yield f
+          .source(foo)
           .rename({
             prefix: 'prefix-',
             suffix: '-suffix'
           })
           .target(tmp)
 
-        t.true(fs.existsSync(path.resolve(__dirname, '.tmp/object/2/prefix-foo-suffix.js')))
+        expect(
+          fs.existsSync(
+            path.resolve(__dirname, '.tmp/object/2/prefix-foo-suffix.js')
+          )
+        ).toBeTruthy()
       }
     }
   })
@@ -60,24 +70,25 @@ test('taskr-rename w/ object preserves dirname, basename, extname when not suppl
   await taskr.start('rename')
 })
 
-test('taskr-rename w/ object works without prefix, suffix', async (t) => {
+test('taskr-rename w/ object works without prefix, suffix', async () => {
   const tmp = path.resolve(__dirname, '.tmp/object/3')
 
-  t.plan(1)
+  expect.assertions(1)
 
   const taskr = new Taskr({
-    plugins: [
-      require('../')
-    ],
+    plugins: [require('../')],
     tasks: {
-      * rename(f) {
-        yield f.source(foo)
+      *rename(f) {
+        yield f
+          .source(foo)
           .rename({
             basename: 'bar'
           })
           .target(tmp)
 
-        t.true(fs.existsSync(path.resolve(__dirname, '.tmp/object/3/bar.js')))
+        expect(
+          fs.existsSync(path.resolve(__dirname, '.tmp/object/3/bar.js'))
+        ).toBeTruthy()
       }
     }
   })

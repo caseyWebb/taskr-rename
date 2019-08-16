@@ -1,25 +1,25 @@
-import fs from 'fs'
-import path from 'path'
-import test from 'ava'
-import Taskr from 'taskr'
+'use strict'
+
+const fs = require('fs')
+const path = require('path')
+const Taskr = require('taskr')
 
 const foo = path.resolve(__dirname, 'fixtures/foo.js')
 const tmp = path.resolve(__dirname, '.tmp/function')
 
-test('taskr-rename w/ function', async (t) => {
-  t.plan(4)
+test('taskr-rename w/ function', async () => {
+  expect.assertions(4)
 
   const taskr = new Taskr({
-    plugins: [
-      require('../')
-    ],
+    plugins: [require('../')],
     tasks: {
-      * rename(f) {
-        yield f.source(foo)
+      *rename(f) {
+        yield f
+          .source(foo)
           .rename((file) => {
-            t.is(file.dirname, path.resolve(__dirname, 'fixtures/'), 'renamer function recieves correct dirname')
-            t.is(file.basename, 'foo', 'renamer function recieves correct basename')
-            t.is(file.extname, '.js', 'renamer function recieves correct extname')
+            expect(file.dirname).toBe(path.resolve(__dirname, 'fixtures/'))
+            expect(file.basename).toBe('foo')
+            expect(file.extname).toBe('.js')
 
             file.dirname = 'dir/name'
             file.basename = 'bar'
@@ -27,7 +27,11 @@ test('taskr-rename w/ function', async (t) => {
           })
           .target(tmp)
 
-        t.true(fs.existsSync(path.resolve(__dirname, '.tmp/function/dir/name/bar.html')))
+        expect(
+          fs.existsSync(
+            path.resolve(__dirname, '.tmp/function/dir/name/bar.html')
+          )
+        ).toBeTruthy()
       }
     }
   })
