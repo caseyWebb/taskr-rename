@@ -8,7 +8,6 @@
 [![Build Status][travis-ci-shield]][travis-ci]
 [![Coverage Status][codecov-shield]][codecov]
 [![Dependency Status][david-dm-shield]][david-dm]
-[![Greenkeeper][greenkeeper-shield]][greenkeeper]
 
 ## Install
 
@@ -70,6 +69,3 @@ export default function* (task) {
 
 [david-dm]: https://david-dm.org/caseyWebb/taskr-rename#type=peer
 [david-dm-shield]: https://img.shields.io/david/peer/caseyWebb/taskr-rename.svg
-
-[greenkeeper]: https://greenkeeper.io/
-[greenkeeper-shield]: https://badges.greenkeeper.io/caseyWebb/taskr-rename.svg
