@@ -49,6 +49,9 @@
     },
     "parserOptions": {
       "sourceType": "script"
+    },
+    "rules": {
+      "@typescript-eslint/no-var-requires": 0
     }
   },
   "jest": {
