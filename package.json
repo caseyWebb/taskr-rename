@@ -13,6 +13,7 @@
     "rename"
   ],
   "scripts": {
+    "lint": "eslint --ignore-path .gitignore ./",
     "prepublish": "npm run test",
     "test": "jest",
     "posttest": "rm -rf test/.tmp"
