@@ -1,6 +1,6 @@
 {
   "name": "taskr-rename",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Rename plugin for Taskr",
   "license": "WTFPL",
   "repository": "https://github.com/caseyWebb/taskr-rename",
