@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+
 const Taskr = require('taskr')
 
 const foo = path.resolve(__dirname, 'fixtures/foo.js')
